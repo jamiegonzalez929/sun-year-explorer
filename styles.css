@@ -1,0 +1,255 @@
+:root {
+  --bg: #f4efe5;
+  --paper: rgba(255, 252, 247, 0.88);
+  --ink: #1f2430;
+  --muted: #59606d;
+  --accent: #d86f45;
+  --accent-2: #245e73;
+  --border: rgba(31, 36, 48, 0.12);
+  --shadow: 0 20px 60px rgba(63, 47, 23, 0.12);
+  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --sans: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(216, 111, 69, 0.24), transparent 32%),
+    radial-gradient(circle at top right, rgba(36, 94, 115, 0.2), transparent 28%),
+    linear-gradient(180deg, #fbf7ef 0%, var(--bg) 60%, #ebe1d1 100%);
+  min-height: 100vh;
+}
+
+.page-shell {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.hero {
+  padding: 1.25rem 0 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  line-height: 0.95;
+  max-width: 10ch;
+}
+
+.hero-copy {
+  max-width: 62ch;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.control {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.control label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+select,
+input[type="number"],
+input[type="range"] {
+  width: 100%;
+}
+
+select,
+input[type="number"] {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  color: var(--ink);
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat {
+  padding: 1rem;
+}
+
+.stat-label {
+  margin: 0 0 0.45rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(216, 111, 69, 0.12);
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.chart-panel,
+.heatmap-panel,
+.notes {
+  padding: 1rem 1.2rem 1.3rem;
+  margin-bottom: 1.25rem;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.panel-header p,
+.notes p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+#line-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.grid-line {
+  stroke: rgba(31, 36, 48, 0.1);
+  stroke-width: 1;
+}
+
+.axis-label {
+  fill: var(--muted);
+  font-size: 12px;
+  font-family: var(--sans);
+}
+
+.trend-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.trend-area {
+  fill: rgba(216, 111, 69, 0.12);
+  stroke: none;
+}
+
+.heatmap-grid {
+  display: grid;
+}
+
+#heatmap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.month-card {
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.month-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.65rem;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.26rem;
+}
+
+.day-tile {
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1rem;
+}
+
+.note-box {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 900px) {
+  .controls,
+  .stats,
+  #heatmap,
+  .notes {
+    grid-template-columns: 1fr;
+  }
+}

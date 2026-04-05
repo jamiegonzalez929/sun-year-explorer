@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sun Year Explorer</title>
+    <meta
+      name="description"
+      content="Explore how daylight duration changes through the year for any latitude."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <p class="eyebrow">Daylight atlas</p>
+        <h1>See your year in sunlight.</h1>
+        <p class="hero-copy">
+          Sun Year Explorer is a small local-first visualization for understanding how much
+          daylight your latitude really gets. Pick a city or scrub a latitude and the page
+          redraws the entire year instantly with no API calls.
+        </p>
+      </section>
+
+      <section class="controls panel" aria-label="Controls">
+        <div class="control">
+          <label for="location-select">Preset location</label>
+          <select id="location-select">
+            <option value="">Custom latitude</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="latitude-range">Latitude range</label>
+          <input id="latitude-range" type="range" min="-66" max="66" step="0.1" />
+        </div>
+        <div class="control">
+          <label for="latitude-input">Latitude value</label>
+          <input id="latitude-input" type="number" min="-66" max="66" step="0.1" />
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Summary statistics">
+        <article class="stat panel">
+          <p class="stat-label">Today’s daylight</p>
+          <strong id="current-daylight"></strong>
+        </article>
+        <article class="stat panel">
+          <p class="stat-label">Solar noon altitude</p>
+          <strong id="noon-altitude"></strong>
+        </article>
+        <article class="stat panel">
+          <p class="stat-label">Longest day</p>
+          <strong id="longest-day"></strong>
+        </article>
+        <article class="stat panel">
+          <p class="stat-label">Shortest day</p>
+          <strong id="shortest-day"></strong>
+          <p class="stat-label"><span id="season-chip" class="pill"></span></p>
+        </article>
+      </section>
+
+      <section class="chart-panel panel">
+        <div class="panel-header">
+          <div>
+            <h2>Daylight curve</h2>
+            <p>The line shows daylight duration from January through December.</p>
+          </div>
+        </div>
+        <div id="line-chart"></div>
+      </section>
+
+      <section class="heatmap-panel panel">
+        <div class="panel-header">
+          <div>
+            <h2>Year heatmap</h2>
+            <p>Every square is a day. Warmer tiles mean longer daylight.</p>
+          </div>
+        </div>
+        <div id="heatmap"></div>
+      </section>
+
+      <section class="notes panel">
+        <div class="note-box">
+          <h2>How to read it</h2>
+          <p id="explainer"></p>
+        </div>
+        <div class="note-box">
+          <h2>Method</h2>
+          <p>
+            The app uses a standard declination-based approximation for day length. It is
+            accurate enough for planning and comparison, but it does not model local horizon
+            obstructions, refraction, or daylight saving time.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
