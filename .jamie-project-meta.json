@@ -1,0 +1,21 @@
+{
+  "name": "sun-year-explorer",
+  "summary": "Sun Year Explorer is a local-first daylight visualization that shows how the length of the day changes across a full year for preset cities or any custom latitude. It combines a responsive static web app with tested astronomy calculations, offline-friendly hosting, and a GitHub Pages deployment.",
+  "category": "data-viz",
+  "tech_stack": [
+    "HTML",
+    "CSS",
+    "JavaScript (ES modules)",
+    "Node.js test runner",
+    "GitHub Pages"
+  ],
+  "test_commands": [
+    "npm test"
+  ],
+  "run_commands": [
+    "npm run start"
+  ],
+  "github_repo": "jamiegonzalez929/sun-year-explorer",
+  "github_url": "https://github.com/jamiegonzalez929/sun-year-explorer",
+  "pages_url": "https://jamiegonzalez929.github.io/sun-year-explorer/"
+}
